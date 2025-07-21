@@ -22,11 +22,6 @@ const socialMedia = [
     href: "https://instagram.com/hariswaran",
     hover: "hover:text-pink-500",
   },
-  {
-    icon: <FaTwitter />,
-    href: "https://twitter.com/hariswaran",
-    hover: "hover:text-sky-400",
-  },
 ];
 
 const SocialMediaLinks = ({ align = "", gap = "gap-4", size = "text-2xl" }) => {

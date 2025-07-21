@@ -2,7 +2,7 @@ import Button from "../components/Button";
 
 const About = () => {
   return (
-    <section className="bg-slate-800 px-6 py-12 flex items-center justify-center">
+    <section className="bg-slate-800 px-6 py-20 flex items-center justify-center">
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-10 text-white">
         {/* Left: Profile Image */}
         <div className="flex-1 flex justify-center">

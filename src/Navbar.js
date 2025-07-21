@@ -43,39 +43,34 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-slate-800 text-white shadow-md z-50">
-      <div className="flex items-center justify-between px-4 py-3">
-        {/* Logo */}
-        <div className="flex items-center gap-2 bg-gray-500 p-2 rounded-xl">
-          <img
-            src="./images/profile.jpg"
-            alt="profile"
-            className="rounded-full w-10 h-10"
-          />
-          <h4 className="tracking-widest font-semibold text-xl">HARISWARAN</h4>
-        </div>
+      <div className="bg-slate-800 text-white">
+        <div className="flex items-center justify-between py-3 max-w-[100rem] mx-auto ">
+          {/* Logo */}
+          <div className="flex items-center gap-2 bg-gray-500 p-2 rounded-xl">
+            <img
+              src="./images/profile.jpg"
+              alt="profile"
+              className="rounded-full w-10 h-10"
+            />
+            <h4 className="tracking-widest font-semibold text-xl">
+              HARISWARAN
+            </h4>
+          </div>
 
-        {/* Hamburger - Mobile */}
-        <div className="md:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </button>
-        </div>
+          {/* Hamburger - Mobile */}
+          <div className="md:hidden">
+            <button onClick={() => setMenuOpen(!menuOpen)}>
+              {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
+          </div>
 
-        {/* Links - Desktop */}
-        <div className="hidden md:flex gap-6 text-lg font-medium">
-          <NavLink id="home" label="Home" />
-          <NavLink id="services" label="What I Do" />
-          <NavLink id="projects" label="Projects" />
-          <NavLink id="contact" label="Contact" />
-        </div>
-
-        {/* Search - Desktop */}
-        <div className="hidden md:block">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="rounded px-2 py-1 text-black focus:outline-none"
-          />
+          {/* Links - Desktop */}
+          <div className="hidden md:flex gap-4 text-base font-medium">
+            <NavLink id="home" label="Home" />
+            <NavLink id="services" label="What I Do" />
+            <NavLink id="projects" label="Projects" />
+            <NavLink id="contact" label="Contact" />
+          </div>
         </div>
       </div>
 
