@@ -1,11 +1,11 @@
 import { SiMongodb, SiExpress, SiReact, SiNodedotjs } from "react-icons/si";
-import Button from "./Button";
+import Button from "../components/Button";
+import SocialMediaLinks from "../components/SocialMediaLinks";
+import About from "./About";
 import Services from "./Services";
 import Projects from "./Projects";
 import Contact from "./Contact";
-import SocialMediaLinks from "./SocialMediaLinks";
-import About from "./About";
-import Footer from "./Footer";
+import Footer from "../Footer";
 
 const mernSkills = [
   { icon: <SiMongodb />, label: "MongoDB", hover: "hover:text-green-400" },
@@ -18,8 +18,11 @@ const Home = () => {
   return (
     <>
       {/* Hero Section */}
-      <main className="bg-slate-700 flex items-center justify-center px-4 sm:px-6 py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl w-full gap-6 md:gap-10">
+      <section
+        id="home"
+        className="bg-slate-700 pt-24 px-4 sm:px-6 py-20 min-h-64 flex items-center justify-center"
+      >
+        <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl w-full gap-6 md:gap-10 py-12">
           {/* Left Side */}
           <div className="flex-1 text-center md:text-left max-w-xl">
             <p className="text-gray-300 text-lg mb-2">Hello, I am</p>
@@ -37,12 +40,8 @@ const Home = () => {
             </p>
 
             {/* Buttons */}
-            <div className="flex gap-4">
-              <Button
-                text="Contact Me"
-                href="mailto:hariswaran@example.com"
-                variant="primary"
-              />
+            <div className="flex gap-4 justify-center md:justify-start">
+              <Button text="Contact Me" href="#contact" variant="primary" />
               <Button
                 text="Download CV"
                 href="/cv.pdf"
@@ -73,7 +72,7 @@ const Home = () => {
           </div>
 
           {/* Right Side - Profile Image */}
-          <div className="flex-1 flex justify-center gap-5">
+          <div className="flex-1 flex justify-center">
             <img
               src="/images/profile.jpg"
               alt="Hariswaran Profile"
@@ -81,18 +80,29 @@ const Home = () => {
             />
           </div>
         </div>
-      </main>
+      </section>
+
       {/* About Section */}
-      <About />
+      <section id="about" className="bg-gray-100 ">
+        <About />
+      </section>
+
       {/* What I Do Section */}
-      <Services />
-      {/* My Projects section */}
-      <Projects />
+      <section id="services" className="bg-white ">
+        <Services />
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="bg-gray-100">
+        <Projects />
+      </section>
+
+      <hr className="border-t border-gray-300 my-0" />
 
       {/* Contact Section */}
-      <Contact />
-      {/* Footer Section */}
-      <Footer />
+      <section id="contact" className="bg-white p">
+        <Contact />
+      </section>
     </>
   );
 };

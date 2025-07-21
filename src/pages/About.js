@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "../components/Button";
 
 const About = () => {
   return (
@@ -7,7 +7,7 @@ const About = () => {
         {/* Left: Profile Image */}
         <div className="flex-1 flex justify-center">
           <img
-            src="/images/profile.jpg"
+            src="./images/profile.jpg"
             alt="Hariswaran Profile"
             className="w-48 sm:w-64 md:w-72 object-cover border-4 border-cyan-400 rounded-xl shadow-md"
           />

@@ -1,9 +1,9 @@
-import SocialMediaLinks from "./SocialMediaLinks";
+import SocialMediaLinks from "../components/SocialMediaLinks";
 
 const Contact = () => {
   return (
     <section className="bg-slate-900 px-6 py-12 text-white">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-6xl mx-auto min-h-[6vh] grid md:grid-cols-2 gap-12 items-center">
         {/* Left Side - Social Info */}
         <div className="space-y-6">
           <h2 className="text-4xl font-bold text-cyan-400">Contact Me</h2>
