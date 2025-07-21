@@ -16,11 +16,13 @@ const mernSkills = [
 
 const Home = () => {
   return (
-    <>
+    <div className="overflow-x-hidden">
+      {" "}
+      {/* Prevent horizontal scroll globally */}
       {/* Hero Section */}
       <section
         id="home"
-        className="bg-slate-700 pt-24 px-4 sm:px-6 py-20 flex items-center justify-center"
+        className="bg-slate-700 pt-24 px-4 sm:px-6 py-20 flex items-center justify-center overflow-x-hidden"
       >
         <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl w-full gap-6 md:gap-10 py-12">
           {/* Left Side */}
@@ -86,39 +88,42 @@ const Home = () => {
           </SlideIn>
         </div>
       </section>
-
       {/* About Section */}
-      <section id="about" className="bg-slate-600">
+      <section id="about" className="bg-slate-600 overflow-x-hidden">
         <SlideIn direction="left" delay={0.3}>
           <About />
         </SlideIn>
       </section>
-
       {/* Services Section */}
-      <section id="services" className="bg-slate-600 scroll-mt-24">
+      <section
+        id="services"
+        className="bg-slate-600 scroll-mt-24 overflow-x-hidden"
+      >
         <SlideIn direction="right" delay={0.3}>
           <Services />
         </SlideIn>
       </section>
-
       <hr className="border-t border-gray-300 my-0" />
-
       {/* Projects Section */}
-      <section id="projects" className="bg-slate-600 scroll-mt-24">
+      <section
+        id="projects"
+        className="bg-slate-600 scroll-mt-24 overflow-x-hidden"
+      >
         <SlideIn direction="down" delay={0.3}>
           <Projects />
         </SlideIn>
       </section>
-
       <hr className="border-t border-gray-300 my-0" />
-
       {/* Contact Section */}
-      <section id="contact" className="bg-slate-600 scroll-mt-24">
+      <section
+        id="contact"
+        className="bg-slate-600 scroll-mt-24 overflow-x-hidden"
+      >
         <SlideIn direction="up" delay={0.4}>
           <Contact />
         </SlideIn>
       </section>
-    </>
+    </div>
   );
 };
 

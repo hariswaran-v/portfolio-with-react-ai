@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-const sections = ["home", "about", "services", "projects", "contact"];
+const sections = ["home", "services", "projects", "contact"];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,8 +20,8 @@ const Navbar = () => {
     );
 
     sections.forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
@@ -31,9 +31,9 @@ const Navbar = () => {
     <a
       href={`#${id}`}
       onClick={() => setMenuOpen(false)}
-      className={`hover:text-cyan-400 transition ${
+      className={`block px-4 py-2 md:inline hover:text-cyan-400 ${
         activeSection === id
-          ? "font-bold underline underline-offset-4 text-cyan-300"
+          ? "font-bold text-cyan-300 underline underline-offset-4"
           : ""
       }`}
     >
@@ -42,53 +42,44 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-slate-800 text-white shadow-md z-50">
-      <div className="bg-slate-800 text-white">
-        <div className="flex items-center justify-between py-3 max-w-[100rem] mx-auto ">
-          {/* Logo */}
-          <div className="flex items-center gap-2 bg-gray-500 p-2 rounded-xl">
-            <img
-              src="./images/profile.jpg"
-              alt="profile"
-              className="rounded-full w-10 h-10"
-            />
-            <h4 className="tracking-widest font-semibold text-xl">
-              HARISWARAN
-            </h4>
-          </div>
-
-          {/* Hamburger - Mobile */}
-          <div className="md:hidden">
-            <button onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-            </button>
-          </div>
-
-          {/* Links - Desktop */}
-          <div className="hidden md:flex gap-4 text-base font-medium">
-            <NavLink id="home" label="Home" />
-            <NavLink id="services" label="What I Do" />
-            <NavLink id="projects" label="Projects" />
-            <NavLink id="contact" label="Contact" />
-          </div>
+    <header className="bg-slate-800 text-white fixed top-0 left-0 w-full z-50 shadow-md">
+      <div className="max-w-[100rem] mx-auto px-4 py-3 flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center gap-2 bg-gray-500 p-2 rounded-xl">
+          <img
+            src="/images/profile.jpg"
+            alt="profile"
+            className="rounded-full w-10 h-10"
+          />
+          <h4 className="tracking-widest font-semibold text-xl">HARISWARAN</h4>
         </div>
-      </div>
 
-      {/* Links - Mobile */}
-      {menuOpen && (
-        <div className="md:hidden flex flex-col items-start px-4 pb-4 gap-4 text-lg font-medium">
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex gap-6">
           <NavLink id="home" label="Home" />
           <NavLink id="services" label="What I Do" />
           <NavLink id="projects" label="Projects" />
           <NavLink id="contact" label="Contact" />
-          <input
-            type="text"
-            placeholder="Search..."
-            className="rounded px-2 py-1 text-black focus:outline-none w-full"
-          />
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-slate-800 px-4 pb-4 space-y-2">
+          <NavLink id="home" label="Home" />
+          <NavLink id="services" label="What I Do" />
+          <NavLink id="projects" label="Projects" />
+          <NavLink id="contact" label="Contact" />
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 
