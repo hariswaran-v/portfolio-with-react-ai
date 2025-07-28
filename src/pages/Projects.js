@@ -1,80 +1,25 @@
 import React from "react";
-
-const projects = [
-  {
-    title: "Portfolio Website",
-    image: "/images/portfolio.png",
-    description:
-      "Responsive personal portfolio built with React and Tailwind CSS.",
-    link: "https://your-portfolio-link.com",
-  },
-  {
-    title: "Blog App",
-    image: "/images/blog.png",
-    description:
-      "Fullstack MERN blog app with user authentication and CRUD features.",
-    link: "https://your-blog-app-link.com",
-  },
-  {
-    title: "E-Commerce Store",
-    image: "/images/ecommerce.png",
-    description:
-      "E-commerce store with product filters, cart, and checkout functionality.",
-    link: "https://your-store-link.com",
-  },
-  {
-    title: "Task Tracker",
-    image: "/images/task.png",
-    description: "Task management tool using React hooks and local storage.",
-    link: "https://your-task-tracker-link.com",
-  },
-  {
-    title: "Chat App",
-    image: "/images/chat.png",
-    description: "Real-time chat app built with Socket.io and Node.js.",
-    link: "https://your-chat-app-link.com",
-  },
-  {
-    title: "Weather App",
-    image: "/images/weather.png",
-    description: "Weather forecast app using OpenWeatherMap API.",
-    link: "https://your-weather-app-link.com",
-  },
-];
+import { FolderOpen } from "lucide-react";
 
 const Projects = () => {
   return (
-    <section className="bg-slate-900 px-6 py-12 text-white">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-10 text-cyan-400 text-left">
-          My Projects
+    <section id="projects" className="relative py-20 px-4 scroll-mt-20 z-10">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl font-bold text-white mb-6">
+          My <span className="text-cyan-400">Projects</span>
         </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div className="grid md:grid-cols-2 gap-6">
+          {[1, 2].map((p) => (
             <div
-              key={index}
-              className="bg-slate-800 rounded-lg overflow-hidden shadow-md hover:shadow-cyan-500/20 transition"
+              key={p}
+              className="bg-slate-800/40 p-6 rounded-2xl border border-slate-700 hover:border-cyan-400 transition-all duration-300"
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-300 text-sm mb-4">
-                  {project.description}
-                </p>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-4 py-2 bg-cyan-500 text-white rounded hover:bg-cyan-600 transition"
-                >
-                  View Project
-                </a>
-              </div>
+              <FolderOpen className="w-8 h-8 text-cyan-400 mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">Project {p}</h3>
+              <p className="text-gray-400">
+                A feature-rich web app built using the MERN stack with
+                responsive design and secure backend.
+              </p>
             </div>
           ))}
         </div>
