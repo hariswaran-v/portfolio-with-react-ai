@@ -51,10 +51,10 @@ const Navbar = () => {
       <a
         href={`#${section.id}`}
         onClick={() => setMenuOpen(false)}
-        className={`group relative flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 ${
+        className={`group relative flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
           isActive
-            ? "text-cyan-400 bg-cyan-400/10 border border-cyan-400/30"
-            : "text-gray-300 hover:text-white hover:bg-slate-800/50"
+            ? "text-cyan-400"
+            : "text-gray-300 hover:text-white hover:bg-slate-800/30"
         }`}
       >
         <section.icon
@@ -65,12 +65,18 @@ const Navbar = () => {
           }`}
         />
 
-        <span className="font-medium">{section.label}</span>
+        <span className="font-medium relative">
+          {section.label}
 
-        {/* Active indicator */}
-        {isActive && (
-          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-cyan-400 rounded-full"></div>
-        )}
+          {/* Underline indicator */}
+          <div
+            className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 ${
+              isActive
+                ? "w-full opacity-100"
+                : "w-0 opacity-0 group-hover:w-full group-hover:opacity-70"
+            }`}
+          ></div>
+        </span>
       </a>
     );
   };
