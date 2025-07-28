@@ -97,7 +97,7 @@ const Navbar = () => {
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-white font-bold text-xl tracking-wide">
-                  HARISWARAN
+                  HARI
                 </h1>
                 <p className="text-cyan-400 text-xs">MERN Developer</p>
               </div>

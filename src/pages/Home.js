@@ -3,6 +3,8 @@ import About from "./About";
 import Services from "./Services";
 import Projects from "./Projects";
 import Contact from "./Contact";
+import MyStack from "./MyStack";
+
 import {
   Database,
   Server,
@@ -17,41 +19,7 @@ import {
   Star,
   Coffee,
   Sparkles,
-  FolderOpen,
-  Phone,
-  Briefcase,
 } from "lucide-react";
-
-const mernSkills = [
-  {
-    icon: Database,
-    label: "MongoDB",
-    color: "text-green-500",
-    bgColor: "bg-green-500/10",
-    description: "NoSQL Database",
-  },
-  {
-    icon: Server,
-    label: "Express.js",
-    color: "text-gray-400",
-    bgColor: "bg-gray-500/10",
-    description: "Backend Framework",
-  },
-  {
-    icon: Code2,
-    label: "React",
-    color: "text-blue-500",
-    bgColor: "bg-blue-500/10",
-    description: "Frontend Library",
-  },
-  {
-    icon: Zap,
-    label: "Node.js",
-    color: "text-green-400",
-    bgColor: "bg-green-400/10",
-    description: "JavaScript Runtime",
-  },
-];
 
 const stats = [
   { label: "Projects Completed", value: "15+", icon: Star },
@@ -60,32 +28,28 @@ const stats = [
 ];
 
 const Home = () => {
-  const [activeSkill, setActiveSkill] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
-    const interval = setInterval(() => {
-      setActiveSkill((prev) => (prev + 1) % mernSkills.length);
-    }, 3000);
-    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden scroll-smooth">
-      {/* BG */}
+      {/* BG Effects */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-2000"></div>
       </div>
 
-      {/* ================== Home ================== */}
+      {/* ================== Home Section ================== */}
       <section
         id="home"
         className="relative min-h-screen flex items-center justify-center px-4 pt-20 scroll-mt-20 z-10"
       >
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text Area */}
           <div
             className={`space-y-8 transform transition-all duration-1000 ${
               isVisible
@@ -97,12 +61,13 @@ const Home = () => {
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               <span className="text-sm font-medium">Available for hire</span>
             </div>
+
             <div className="space-y-4">
               <p className="text-cyan-400 text-lg font-medium tracking-wide">
                 Hello, I'm
               </p>
               <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
-                HARI
+                HARI{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
                   SWARAN
                 </span>
@@ -114,11 +79,14 @@ const Home = () => {
                 <Sparkles className="w-8 h-8 text-yellow-400 animate-bounce" />
               </div>
             </div>
+
             <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
               Passionate full-stack developer crafting modern web applications
               with the{" "}
               <span className="text-cyan-400 font-semibold">MERN stack</span>.
             </p>
+
+            {/* Buttons */}
             <div className="flex flex-wrap gap-4">
               <button className="group bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
                 <span className="flex items-center gap-2">
@@ -134,6 +102,8 @@ const Home = () => {
                 </span>
               </button>
             </div>
+
+            {/* Social Links */}
             <div className="flex items-center gap-6 pt-4">
               <span className="text-gray-500 text-sm">Follow me:</span>
               <div className="flex gap-4">
@@ -143,7 +113,10 @@ const Home = () => {
                     icon: Linkedin,
                     href: "https://linkedin.com/in/hariswaran-v",
                   },
-                  { icon: Mail, href: "mailto:hariswaranvenkatesh@gmail.com" },
+                  {
+                    icon: Mail,
+                    href: "mailto:hariswaranvenkatesh@gmail.com",
+                  },
                 ].map((s, i) => (
                   <a
                     key={i}
@@ -159,7 +132,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Profile Image */}
+          {/* Profile Image + Stats */}
           <div
             className={`space-y-8 transform transition-all duration-1000 delay-300 ${
               isVisible
@@ -167,6 +140,7 @@ const Home = () => {
                 : "translate-x-10 opacity-0"
             }`}
           >
+            {/* Profile Image */}
             <div className="relative mx-auto lg:mx-0 w-80 h-80">
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl blur-xl opacity-30 animate-pulse"></div>
               <div className="relative bg-slate-800 p-2 rounded-2xl border border-slate-700">
@@ -200,18 +174,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ================== About ================== */}
+      {/* Other Sections */}
       <About />
-
-      {/* ================== Services ================== */}
+      <MyStack />
       <Services />
-      {/* ================== Projects ================== */}
       <Projects />
-
-      {/* ================== Contact ================== */}
       <Contact />
-
-      {/* Footer */}
     </div>
   );
 };
