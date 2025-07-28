@@ -1,30 +1,30 @@
-import { Database, Server, Code2, Cpu } from "lucide-react";
+import { Database, TerminalSquare, Atom, ServerCog } from "lucide-react"; // imported more relatable icons
 
 const mernSkills = [
   {
     label: "MongoDB",
-    icon: Database,
+    icon: Database, // database icon still works great here
     description: "NoSQL database used for scalable applications.",
     color: "text-green-400",
     bgColor: "bg-green-900/20",
   },
   {
     label: "Express.js",
-    icon: Server,
-    description: "Fast and minimalist backend framework for Node.js.",
+    icon: TerminalSquare, // better for backend command-style interface
+    description: "Minimalist backend framework for Node.js.",
     color: "text-gray-300",
     bgColor: "bg-gray-800/20",
   },
   {
     label: "React.js",
-    icon: Code2,
+    icon: Atom, // looks like React's atom-style logo
     description: "Frontend library for building modern UIs.",
     color: "text-blue-400",
     bgColor: "bg-blue-900/20",
   },
   {
     label: "Node.js",
-    icon: Cpu,
+    icon: ServerCog, // reflects backend server functionality with config
     description: "JavaScript runtime environment on the server.",
     color: "text-lime-400",
     bgColor: "bg-lime-900/20",
