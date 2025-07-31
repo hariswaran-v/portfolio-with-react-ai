@@ -6,10 +6,7 @@ import Contact from "./Contact";
 import MyStack from "./MyStack";
 
 import {
-  Database,
-  Server,
   Code2,
-  Zap,
   Github,
   Linkedin,
   Mail,

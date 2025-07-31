@@ -130,49 +130,45 @@ const Services = () => {
   ];
 
   return (
-    <div
+    <section
       id="services"
-      className="relative min-h-screen py-24 px-4 scroll-mt-20 z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 overflow-hidden"
+      className="relative scroll-mt-28 min-h-screen py-24 px-4 z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 overflow-hidden"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-900/20 via-slate-900 to-slate-950"></div>
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-900/20 via-slate-900 to-slate-950" />
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Killer Header */}
+        {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-block mb-6">
             <span className="text-violet-400 text-sm font-mono tracking-wider uppercase bg-violet-400/10 px-4 py-2 rounded-full border border-violet-400/20">
               Professional Services
             </span>
           </div>
-
           <h2 className="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-violet-400 to-blue-500 mb-6 tracking-tight">
             WHAT I
             <span className="block text-5xl md:text-6xl font-light text-white/80">
               DELIVER
             </span>
           </h2>
-
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light">
             End-to-end development services that transform your vision into
             powerful, scalable web applications with cutting-edge technology and
             exceptional user experience.
           </p>
-
           <div className="w-32 h-1 bg-gradient-to-r from-violet-400 via-blue-500 to-cyan-500 mx-auto mt-8 rounded-full"></div>
         </div>
 
-        {/* Main Services */}
+        {/* Service Cards */}
         <div className="grid lg:grid-cols-3 gap-8 mb-20">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.id}
               className={`group relative p-8 rounded-3xl border ${service.borderColor} bg-slate-900/60 backdrop-blur-xl ${service.glowColor} ${service.hoverGlow} transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-3 cursor-pointer ${service.bgColor}`}
               onMouseEnter={() => setActiveService(service.id)}
             >
-              {/* Gradient Border Effect */}
               <div
                 className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 p-[1px]`}
               >
@@ -180,14 +176,12 @@ const Services = () => {
               </div>
 
               <div className="relative z-10">
-                {/* Icon */}
                 <div
                   className={`inline-flex p-4 rounded-2xl ${service.bgColor} border ${service.borderColor} mb-6 group-hover:scale-110 transition-transform duration-300`}
                 >
                   <service.icon className={`w-10 h-10 ${service.color}`} />
                 </div>
 
-                {/* Content */}
                 <div className="space-y-4">
                   <div>
                     <h3 className="text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">
@@ -206,26 +200,25 @@ const Services = () => {
                       : service.description}
                   </p>
 
-                  {/* Technologies */}
                   <div className="space-y-3">
                     <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">
                       Technologies
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {service.technologies
-                        .slice(0, activeService === service.id ? 6 : 3)
-                        .map((tech, idx) => (
-                          <span
-                            key={idx}
-                            className={`text-xs px-3 py-1 rounded-full ${service.bgColor} border ${service.borderColor} text-slate-300 group-hover:text-white transition-colors`}
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                      {(activeService === service.id
+                        ? service.technologies
+                        : service.technologies.slice(0, 3)
+                      ).map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className={`text-xs px-3 py-1 rounded-full ${service.bgColor} border ${service.borderColor} text-slate-300 group-hover:text-white transition-colors`}
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Features - Show only on active */}
                   {activeService === service.id && (
                     <div className="space-y-3 animate-in slide-in-from-bottom-2 duration-300">
                       <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">
@@ -247,7 +240,6 @@ const Services = () => {
                     </div>
                   )}
 
-                  {/* CTA Button */}
                   <div className="pt-4">
                     <button
                       className={`group/btn flex items-center gap-2 text-sm font-semibold ${service.color} hover:text-white transition-colors`}
@@ -267,7 +259,6 @@ const Services = () => {
           <h3 className="text-3xl font-bold text-white mb-8">
             Additional <span className="text-violet-400">Expertise</span>
           </h3>
-
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {additionalServices.map((service, index) => (
               <div
@@ -285,7 +276,7 @@ const Services = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
