@@ -18,25 +18,6 @@ const Footer = () => {
           Hariswaran
         </p>
 
-        {/* Navigation Links */}
-        <div className="flex justify-center gap-6 text-sm text-slate-400">
-          <Link to="/" className="hover:text-cyan-400 transition duration-300">
-            Home
-          </Link>
-          <Link
-            to="/projects"
-            className="hover:text-cyan-400 transition duration-300"
-          >
-            Projects
-          </Link>
-          <Link
-            to="/contact"
-            className="hover:text-cyan-400 transition duration-300"
-          >
-            Contact
-          </Link>
-        </div>
-
         {/* Rights */}
         <p className="text-xs text-gray-500">
           © {new Date().getFullYear()} Hariswaran. All rights reserved.
